@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-8 col-offset-2">
+        <router-outlet></router-outlet>
+        <button class="btn btn-primary my-5 rounded-border" [routerLink]="'user-form'">Add New</button>
+
+        <table class="table" [border]="1">
+            <thead class="thead-dark text-center">
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of allUserData">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{ user.address.street }}, {{ user.address.city }}, {{ user.address.zipcode }}</td>
+                    <td><button  class="btn btn-primary rounded-border"(click)="editUser(user)"
+                            >Edit</button></td>
+                    <td><button class="btn btn-danger rounded-border" (click)="deleteUser(user.id)" >Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

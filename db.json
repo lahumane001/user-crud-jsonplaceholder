@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "firstname": "Lahu",
+      "lastname": "Mane",
+      "email": "lahumane001@gmail.com",
+      "address": "vadgaon bk",
+      "id": 2
+    },
+    {
+      "firstname": "Gaurav",
+      "lastname": "Kudale",
+      "email": "Gaurav001@gmail.com",
+      "address": "Malshiras",
+      "id": 3
+    }
+  ]
+}

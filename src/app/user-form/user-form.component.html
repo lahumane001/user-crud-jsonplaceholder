@@ -1,0 +1,43 @@
+
+<div class="row pt-5">
+    <div class="col-6 offset-3">
+      <h3 class="text-secondary text-center mb-2">{{ isEditMode ? 'Edit User' : 'Add New User' }}</h3>
+      <form [formGroup]="userFormData" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="fName">First Name<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" placeholder="First Name" id="fName" formControlName="name">
+          <span class="text-danger"*ngIf="userFormData.get('name')?.invalid && userFormData.get('name')?.touched">
+           <ng-container *ngIf="userFormData.get('name')?.errors?.['required']">First name is required...</ng-container> 
+          <ng-container *ngIf="userFormData.get('name')?.errors?.['minlength']">First Name is required minimum three letter</ng-container>
+          </span>
+        </div>
+          <div class="form-group">
+            <label for="lName">Last Number<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Last Name" id="lName" formControlName="username">
+            <span class="text-danger"*ngIf="userFormData.get('username')?.invalid && userFormData.get('username')?.touched">
+              <ng-container *ngIf="userFormData.get('username')?.errors?.['required']">Last name is required...</ng-container> 
+              <ng-container *ngIf="userFormData.get('username')?.errors?.['minlength']">Last Name is required minimum three letter</ng-container>
+              </span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email<span class="text-danger">*</span></label>
+            <input type="email" class="form-control" placeholder="abc@gmail.com" id="email" formControlName="email">
+            <span class="text-danger"*ngIf="userFormData.get('email')?.invalid && userFormData.get('email')?.touched">Email is required...</span>
+          </div>
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" class="form-control" id="street" formControlName="street" placeholder="Enter Street">
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" formControlName="city" placeholder="Enter City">
+          </div>
+          <div class="form-group">
+            <label for="zipcode">Zipcode</label>
+            <input type="text" class="form-control" id="zipcode" formControlName="zipcode" placeholder="Enter Zipcode">
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block rounded-border" [disabled]="userFormData.invalid">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+        </form>
+      </div>
+  </div>
